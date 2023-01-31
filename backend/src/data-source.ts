@@ -1,31 +1,28 @@
 import { DataSource } from "typeorm"
+import "dotenv/config"
 
-require("dotenv").config()
+export const AppDataSource = new DataSource(
+  process.env.NODE_ENV === "test"
+    ? {
+        type: "sqlite",
+        database: ":memory:",
 
-export const AppDataSource = new DataSource({
-  type: "postgres",
+        synchronize: true,
+        entities: ["src/entities/*.ts"],
+      }
+    : {
+        type: "postgres",
+        host: process.env.HOST,
+        port: 5432,
 
-  host: "localhost",
+        username: process.env.POSTGRES_USER,
+        password: process.env.POSTGRES_PWD,
+        database: process.env.POSTGRES_DB,
 
-  port: 5432,
+        logging: true,
+        synchronize: false,
 
-  username: process.env.POSTGRES_USER,
-  password: process.env.POSTGRES_PWD,
-  database: process.env.POSTGRES_DB,
-
-  synchronize: false,
-
-  logging: true,
-
-  entities: ["src/entities/*.ts"],
-
-  migrations: ["src/migrations/*.ts"],
-})
-
-AppDataSource.initialize()
-  .then(() => {
-    console.log("Data Source initialized")
-  })
-  .catch((err) => {
-    console.error("Error during Data Source initialization", err)
-  })
+        entities: ["src/entities/*.ts"],
+        migrations: ["src/migrations/*.ts"],
+      }
+)
