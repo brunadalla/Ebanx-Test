@@ -3,7 +3,7 @@ import { Router } from "express"
 import createUserController from "../controllers/users/createUser.controller"
 import deleteUserController from "../controllers/users/deleteUser.controller"
 import listOneUserController from "../controllers/users/listOneUser.controller"
-import listUserController from "../controllers/users/listUsers.controller"
+import listUserController from "../controllers/contacts/listContactsByUser.controller"
 import updateUserController from "../controllers/users/updateUser.controller"
 import ensureAuthMiddleware from "../middlewares/ensureAuth.middleware"
 

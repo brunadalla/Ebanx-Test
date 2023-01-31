@@ -2,7 +2,7 @@ import { hash } from "bcrypt"
 
 import { AppDataSource } from "../../data-source"
 import { User } from "../../entities/user.entity"
-import { IUserCreate, IUser } from "../../interfaces/user"
+import { IUserCreate } from "../../interfaces/user"
 import { AppError } from "../../errors/appError"
 
 const createUserService = async ({
@@ -10,7 +10,7 @@ const createUserService = async ({
   email,
   password,
   phone,
-}: IUserCreate): Promise<IUser> => {
+}: IUserCreate): Promise<User> => {
   const userRepository = AppDataSource.getRepository(User)
   const emailAlreadyExists = await userRepository.findOne({
     where: {
@@ -19,7 +19,7 @@ const createUserService = async ({
   })
 
   if (emailAlreadyExists) {
-    throw new AppError('Email already being used.', 400)
+    throw new AppError("Email already being used", 400)
   }
 
   const hashedPassword = await hash(password, 10)

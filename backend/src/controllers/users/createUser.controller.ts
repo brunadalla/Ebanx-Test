@@ -1,5 +1,5 @@
-import { Request, Response } from "express"
 import { instanceToPlain } from "class-transformer"
+import { Request, Response } from "express"
 import createUserService from "../../services/users/createUser.service"
 
 const createUserController = async (req: Request, res: Response) => {

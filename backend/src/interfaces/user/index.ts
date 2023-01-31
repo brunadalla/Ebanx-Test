@@ -4,6 +4,14 @@ export interface IUser {
     email: string
     password: string
     phone: string
+    created_at: Date
+}
+
+export interface IUserCreate{
+    name: string
+    email: string
+    password: string
+    phone: string
 }
 
 export interface IUserLogin {
@@ -11,7 +19,8 @@ export interface IUserLogin {
     password: string
 }
 
-export type IUserCreate = Omit<IUser, "id">
-
-export type IUserUpdate = Omit<IUserCreate, "email">
-
+export type IUserUpdate ={
+    name?: string
+    password?: string
+    phone?: string
+}

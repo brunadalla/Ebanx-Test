@@ -3,8 +3,10 @@ import {
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
+  OneToMany,
 } from "typeorm"
 import { Exclude } from "class-transformer"
+import { Contact } from "./contact.entity"
 
 @Entity("users")
 export class User {
@@ -26,4 +28,7 @@ export class User {
 
   @CreateDateColumn({ name: "created_at" })
   createdAt: Date
+
+  @OneToMany(() => Contact, contact => contact.user)
+  contacts: Contact[]
 }

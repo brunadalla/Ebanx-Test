@@ -6,7 +6,7 @@ import { AppDataSource } from "../../data-source"
 import { IUserUpdate } from "../../interfaces/user"
 
 const updateUserService = async (
-  { ...data }: IUserUpdate,
+  data: IUserUpdate,
   idUser: string,
   idToUpdate: string
 ): Promise<User> => {
