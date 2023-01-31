@@ -1,9 +1,9 @@
-import { v4 as uuidv4 } from "uuid"
-import { hash } from "bcryptjs"
+import { hash } from "bcrypt"
 
 import { AppDataSource } from "../../data-source"
 import { User } from "../../entities/user.entity"
 import { IUserCreate, IUser } from "../../interfaces/user"
+import { AppError } from "../../errors/appError"
 
 const createUserService = async ({
   name,
@@ -19,7 +19,7 @@ const createUserService = async ({
   })
 
   if (emailAlreadyExists) {
-    throw new Error("Email already exists")
+    throw new AppError('Email already being used.', 400)
   }
 
   const hashedPassword = await hash(password, 10)

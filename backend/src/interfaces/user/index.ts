@@ -8,3 +8,5 @@ export interface IUser {
 
 export type IUserCreate = Omit<IUser, "id">
 
+export type IUserUpdate = Omit<IUserCreate, "email">
+
