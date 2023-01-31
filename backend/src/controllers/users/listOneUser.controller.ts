@@ -1,19 +1,13 @@
-import { Request, Response } from 'express'
+import { Request, Response } from "express"
+import { instanceToPlain } from "class-transformer"
+import listOneUserService from "../../services/users/listOneUser.service"
 
-const userCreateController = (req: Request, res: Response) => {
+const listOneUserController = async (req: Request, res: Response) => {
+  const idUser = req.user.id
+  const idToList = req.params.id
+  const user = await listOneUserService(idUser, idToList)
 
-    try {
-
-    } catch (err) {
-
-        if (err instanceof Error) {
-
-            return res.status(400).send({
-                "error": err.name,
-                "message": err.message
-            })
-        }
-    }
+  return res.json(instanceToPlain(user))
 }
 
-export default userCreateController
+export default listOneUserController

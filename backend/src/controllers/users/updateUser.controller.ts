@@ -1,19 +1,15 @@
-import { Request, Response } from 'express'
+import { Request, Response } from "express"
+import { instanceToPlain } from "class-transformer"
+import updateUserService from "../../services/users/updateUser.service"
 
-const userCreateController = (req: Request, res: Response) => {
+const updateUserController = async (req: Request, res: Response) => {
+  const data = req.body
+  const userId = req.user.id
+  const idToUpdate = req.params.id
 
-    try {
+  const updatedUser = await updateUserService(data, userId, idToUpdate)
 
-    } catch (err) {
-
-        if (err instanceof Error) {
-
-            return res.status(400).send({
-                "error": err.name,
-                "message": err.message
-            })
-        }
-    }
+  return res.json(instanceToPlain(updatedUser))
 }
 
-export default userCreateController
+export default updateUserController

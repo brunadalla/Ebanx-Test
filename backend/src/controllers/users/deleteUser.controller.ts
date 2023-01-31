@@ -1,19 +1,12 @@
-import { Request, Response } from 'express'
+import { Request, Response } from "express"
+import deleteUserService from "../../services/users/deleteUser.service"
 
-const userCreateController = (req: Request, res: Response) => {
+const deleteUserController = async (req: Request, res: Response) => {
+  const idUser = req.user.id
+  const idToDelete = req.params.id
+  await deleteUserService(idUser, idToDelete)
 
-    try {
-
-    } catch (err) {
-
-        if (err instanceof Error) {
-
-            return res.status(400).send({
-                "error": err.name,
-                "message": err.message
-            })
-        }
-    }
+  return res.status(204).send()
 }
 
-export default userCreateController
+export default deleteUserController

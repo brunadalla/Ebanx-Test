@@ -5,7 +5,7 @@ import { AppError } from "../../errors/appError"
 import { AppDataSource } from "../../data-source"
 import { IUserUpdate } from "../../interfaces/user"
 
-const editUserService = async (
+const updateUserService = async (
   { ...data }: IUserUpdate,
   idUser: string,
   idToUpdate: string
@@ -49,4 +49,4 @@ const editUserService = async (
   return updatedUser!
 }
 
-export default editUserService
+export default updateUserService
