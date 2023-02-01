@@ -1,10 +1,10 @@
 import { Router } from "express"
 
-import createContactController from "../controllers/contacts/createUser.controller"
-import deleteContactController from "../controllers/contacts/deleteUser.controller"
+import createContactController from "../controllers/contacts/createContact.controller"
+import deleteContactController from "../controllers/contacts/deleteContact.controller"
 import listContactsByUserController from "../controllers/contacts/listContactsByUser.controller"
-import listOneContactController from "../controllers/contacts/listOneUser.controller"
-import updateContactController from "../controllers/contacts/updateUser.controller"
+import listOneContactController from "../controllers/contacts/listOneContact.controller"
+import updateContactController from "../controllers/contacts/updateContact.controller"
 import ensureAuthMiddleware from "../middlewares/ensureAuth.middleware"
 
 const routes = Router()

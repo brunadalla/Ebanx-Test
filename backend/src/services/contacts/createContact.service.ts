@@ -8,34 +8,39 @@ const createContactService = async ({
   name,
   email,
   phone,
-  userId
+  userId,
 }: IContactRequest): Promise<Contact> => {
   const contactRepository = AppDataSource.getRepository(Contact)
   const userRepository = AppDataSource.getRepository(User)
 
-  const user = await userRepository.findOne({
-    where: {
-      id: userId,
-    },
-    relations: {
-      contacts: true,
-    },
-  })
+  const user = await userRepository.findOneBy({ id: userId })
+  const contacts = await contactRepository.find({ relations: { user: true } })
+  const userContacts = contacts.filter((contact) => contact.user.id === userId)
 
-  const emailAlreadyExists = user?.contacts.find(contact => contact.email === email)
-  const phoneAlreadyExists = user?.contacts.find(contact => contact.phone === phone)
+  const emailAlreadyExists = userContacts.find(
+    (contact) => contact.email === email
+  )
+  const phoneAlreadyExists = userContacts.find(
+    (contact) => contact.phone === phone
+  )
 
   if (emailAlreadyExists) {
-    throw new AppError(`Your contact ${emailAlreadyExists.name} already has this email`, 400)
+    throw new AppError(
+      `Your contact ${emailAlreadyExists.name} already has this email`,
+      400
+    )
   } else if (phoneAlreadyExists) {
-    throw new AppError(`Your contact ${phoneAlreadyExists.name} already has this phone number`, 400)
+    throw new AppError(
+      `Your contact ${phoneAlreadyExists.name} already has this phone number`,
+      400
+    )
   }
 
   const newContact = contactRepository.create({
     name,
     email,
     phone,
-    user: user!
+    user: user!,
   })
 
   await contactRepository.save(newContact)
