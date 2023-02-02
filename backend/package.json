@@ -29,6 +29,8 @@
     "uuid": "^9.0.0"
   },
   "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.ts",
     "dev": "ts-node-dev src/server.ts",
     "typeorm": "typeorm-ts-node-commonjs"
   }

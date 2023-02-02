@@ -1,14 +1,16 @@
 import { DataSource } from "typeorm"
 import "dotenv/config"
 
-export const AppDataSource = new DataSource(
-  process.env.NODE_ENV === "test"
-    ? {
-        type: "sqlite",
-        database: ":memory:",
+const nodeEnv = process.env.NODE_ENV
 
-        synchronize: true,
+export const AppDataSource = new DataSource(
+  nodeEnv === "production"
+    ? {
+        type: "postgres",
+        url: process.env.DATABASE_URL,
+
         entities: ["src/entities/*.ts"],
+        migrations: ["src/migrations/*.ts"],
       }
     : {
         type: "postgres",
