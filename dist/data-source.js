@@ -8,8 +8,8 @@ exports.AppDataSource = new typeorm_1.DataSource(nodeEnv === "production"
     ? {
         type: "postgres",
         url: process.env.DATABASE_URL,
-        entities: ["src/entities/*.ts"],
-        migrations: ["src/migrations/*.ts"],
+        entities: ["src/entities/*.{js,ts}"],
+        migrations: ["src/migrations/*{js,ts}"],
     }
     : {
         type: "postgres",
@@ -20,6 +20,6 @@ exports.AppDataSource = new typeorm_1.DataSource(nodeEnv === "production"
         database: process.env.POSTGRES_DB,
         logging: true,
         synchronize: false,
-        entities: ["src/entities/*.ts"],
-        migrations: ["src/migrations/*.ts"],
+        entities: ["src/entities/*{js,ts}"],
+        migrations: ["src/migrations/*{js,ts}"],
     });
