@@ -9,8 +9,8 @@ export const AppDataSource = new DataSource(
         type: "postgres",
         url: process.env.DATABASE_URL,
 
-        entities: ["src/entities/*.ts"],
-        migrations: ["src/migrations/*.ts"],
+        entities: ["src/entities/*.{js,ts}"],
+        migrations: ["src/migrations/*.{js,ts}"],
       }
     : {
         type: "postgres",
@@ -24,7 +24,7 @@ export const AppDataSource = new DataSource(
         logging: true,
         synchronize: false,
 
-        entities: ["src/entities/*.ts"],
-        migrations: ["src/migrations/*.ts"],
+        entities: ["src/entities/*.{js,ts}"],
+        migrations: ["src/migrations/*.{js,ts}"],
       }
 )
