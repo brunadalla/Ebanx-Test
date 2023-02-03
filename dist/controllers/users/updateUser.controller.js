@@ -22,3 +22,4 @@ const updateUserController = (req, res) => __awaiter(void 0, void 0, void 0, fun
     return res.json((0, class_transformer_1.instanceToPlain)(updatedUser));
 });
 exports.default = updateUserController;
+//# sourceMappingURL=updateUser.controller.js.map

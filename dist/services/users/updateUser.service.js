@@ -8,13 +8,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const bcrypt_1 = require("bcrypt");
 const user_entity_1 = require("../../entities/user.entity");
 const appError_1 = require("../../errors/appError");
-const data_source_1 = require("../../data-source");
+const data_source_1 = __importDefault(require("../../data-source"));
 const updateUserService = (data, idUser, idToUpdate) => __awaiter(void 0, void 0, void 0, function* () {
-    const userRepository = data_source_1.AppDataSource.getRepository(user_entity_1.User);
+    const userRepository = data_source_1.default.getRepository(user_entity_1.User);
     const userToUpdate = yield userRepository.findOne({
         where: {
             id: idToUpdate,
@@ -41,3 +44,4 @@ const updateUserService = (data, idUser, idToUpdate) => __awaiter(void 0, void 0
     return updatedUser;
 });
 exports.default = updateUserService;
+//# sourceMappingURL=updateUser.service.js.map

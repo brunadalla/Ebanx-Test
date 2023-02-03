@@ -20,3 +20,4 @@ const listOneContactController = (req, res) => __awaiter(void 0, void 0, void 0,
     return res.json(contact);
 });
 exports.default = listOneContactController;
+//# sourceMappingURL=listOneContact.controller.js.map

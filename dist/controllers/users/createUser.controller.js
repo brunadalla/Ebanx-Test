@@ -20,3 +20,4 @@ const createUserController = (req, res) => __awaiter(void 0, void 0, void 0, fun
     return res.status(201).json((0, class_transformer_1.instanceToPlain)(createdUser));
 });
 exports.default = createUserController;
+//# sourceMappingURL=createUser.controller.js.map

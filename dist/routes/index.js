@@ -10,3 +10,4 @@ const appRoutes = (app) => {
     app.use("/contacts", (0, contacts_routes_1.contactsRouter)());
 };
 exports.appRoutes = appRoutes;
+//# sourceMappingURL=index.js.map

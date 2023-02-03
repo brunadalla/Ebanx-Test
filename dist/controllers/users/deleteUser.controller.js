@@ -20,3 +20,4 @@ const deleteUserController = (req, res) => __awaiter(void 0, void 0, void 0, fun
     return res.status(204).send();
 });
 exports.default = deleteUserController;
+//# sourceMappingURL=deleteUser.controller.js.map

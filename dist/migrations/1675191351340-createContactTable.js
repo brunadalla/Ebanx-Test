@@ -28,3 +28,4 @@ class createContactTable1675191351340 {
     }
 }
 exports.createContactTable1675191351340 = createContactTable1675191351340;
+//# sourceMappingURL=1675191351340-createContactTable.js.map

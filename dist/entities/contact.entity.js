@@ -42,3 +42,4 @@ Contact = __decorate([
     (0, typeorm_1.Entity)("contacts")
 ], Contact);
 exports.Contact = Contact;
+//# sourceMappingURL=contact.entity.js.map

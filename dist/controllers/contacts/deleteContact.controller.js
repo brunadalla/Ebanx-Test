@@ -20,3 +20,4 @@ const deleteContactController = (req, res) => __awaiter(void 0, void 0, void 0, 
     return res.status(204).send();
 });
 exports.default = deleteContactController;
+//# sourceMappingURL=deleteContact.controller.js.map

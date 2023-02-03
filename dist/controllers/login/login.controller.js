@@ -19,3 +19,4 @@ const loginController = (req, res) => __awaiter(void 0, void 0, void 0, function
     return res.json({ token });
 });
 exports.default = loginController;
+//# sourceMappingURL=login.controller.js.map

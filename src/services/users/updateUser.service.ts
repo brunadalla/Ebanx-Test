@@ -2,7 +2,7 @@ import { hash } from "bcrypt"
 
 import { User } from "../../entities/user.entity"
 import { AppError } from "../../errors/appError"
-import { AppDataSource } from "../../data-source"
+import dataSource from "../../data-source"
 import { IUserUpdate } from "../../interfaces/user"
 
 const updateUserService = async (
@@ -10,7 +10,7 @@ const updateUserService = async (
   idUser: string,
   idToUpdate: string
 ): Promise<User> => {
-  const userRepository = AppDataSource.getRepository(User)
+  const userRepository = dataSource.getRepository(User)
 
   const userToUpdate = await userRepository.findOne({
     where: {

@@ -21,3 +21,4 @@ const usersRouter = () => {
     return routes;
 };
 exports.usersRouter = usersRouter;
+//# sourceMappingURL=users.routes.js.map

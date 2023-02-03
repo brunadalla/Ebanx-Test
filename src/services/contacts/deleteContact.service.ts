@@ -1,4 +1,4 @@
-import { AppDataSource } from "../../data-source"
+import dataSource from "../../data-source"
 import { Contact } from "../../entities/contact.entity"
 import { User } from "../../entities/user.entity"
 import { AppError } from "../../errors/appError"
@@ -7,8 +7,8 @@ const deleteContactService = async (
   idUser: string,
   idContact: string
 ): Promise<void> => {
-  const contactRepository = AppDataSource.getRepository(Contact)
-  const userRepository = AppDataSource.getRepository(User)
+  const contactRepository = dataSource.getRepository(Contact)
+  const userRepository = dataSource.getRepository(User)
 
   const user = await userRepository.findOne({
     where: {

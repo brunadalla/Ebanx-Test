@@ -19,3 +19,4 @@ const listContactsByUserController = (req, res) => __awaiter(void 0, void 0, voi
     return res.json(contacts);
 });
 exports.default = listContactsByUserController;
+//# sourceMappingURL=listContactsByUser.controller.js.map

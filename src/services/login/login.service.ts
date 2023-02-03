@@ -5,14 +5,14 @@ import "dotenv/config"
 
 import { User } from "../../entities/user.entity"
 import { AppError } from "../../errors/appError"
-import { AppDataSource } from "../../data-source"
+import dataSource from "../../data-source"
 import { IUserLogin } from "../../interfaces/user"
 
 const loginService = async ({
   email,
   password,
 }: IUserLogin): Promise<string> => {
-  const userRepository = AppDataSource.getRepository(User)
+  const userRepository = dataSource.getRepository(User)
 
   const user = await userRepository.findOne({
     where: {

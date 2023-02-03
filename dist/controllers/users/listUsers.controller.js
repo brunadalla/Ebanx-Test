@@ -19,3 +19,4 @@ const listUsersController = (req, res) => __awaiter(void 0, void 0, void 0, func
     return res.json((0, class_transformer_1.instanceToPlain)(users));
 });
 exports.default = listUsersController;
+//# sourceMappingURL=listUsers.controller.js.map

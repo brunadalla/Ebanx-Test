@@ -21,3 +21,4 @@ const createContactController = (req, res) => __awaiter(void 0, void 0, void 0, 
     return res.status(201).json((0, class_transformer_1.instanceToPlain)(contact));
 });
 exports.default = createContactController;
+//# sourceMappingURL=createContact.controller.js.map

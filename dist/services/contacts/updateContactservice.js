@@ -8,14 +8,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const data_source_1 = require("../../data-source");
+const data_source_1 = __importDefault(require("../../data-source"));
 const contact_entity_1 = require("../../entities/contact.entity");
 const user_entity_1 = require("../../entities/user.entity");
 const appError_1 = require("../../errors/appError");
 const updateContactService = (data, idUser, idContact) => __awaiter(void 0, void 0, void 0, function* () {
-    const contactRepository = data_source_1.AppDataSource.getRepository(contact_entity_1.Contact);
-    const userRepository = data_source_1.AppDataSource.getRepository(user_entity_1.User);
+    const contactRepository = data_source_1.default.getRepository(contact_entity_1.Contact);
+    const userRepository = data_source_1.default.getRepository(user_entity_1.User);
     const user = yield userRepository.findOne({
         where: {
             id: idUser,
@@ -33,3 +36,4 @@ const updateContactService = (data, idUser, idContact) => __awaiter(void 0, void
     return updatedContact;
 });
 exports.default = updateContactService;
+//# sourceMappingURL=updateContactservice.js.map

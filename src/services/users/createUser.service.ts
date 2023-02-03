@@ -1,9 +1,9 @@
 import { hash } from "bcrypt"
 
-import { AppDataSource } from "../../data-source"
 import { User } from "../../entities/user.entity"
 import { IUserCreate } from "../../interfaces/user"
 import { AppError } from "../../errors/appError"
+import dataSource from "../../data-source"
 
 const createUserService = async ({
   name,
@@ -11,7 +11,7 @@ const createUserService = async ({
   password,
   phone,
 }: IUserCreate): Promise<User> => {
-  const userRepository = AppDataSource.getRepository(User)
+  const userRepository = dataSource.getRepository(User)
   const emailAlreadyExists = await userRepository.findOne({
     where: {
       email: email,

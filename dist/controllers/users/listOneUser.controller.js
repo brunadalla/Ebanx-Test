@@ -20,3 +20,4 @@ const listOneUserController = (req, res) => __awaiter(void 0, void 0, void 0, fu
     return res.json((0, class_transformer_1.instanceToPlain)(user));
 });
 exports.default = listOneUserController;
+//# sourceMappingURL=listOneUser.controller.js.map

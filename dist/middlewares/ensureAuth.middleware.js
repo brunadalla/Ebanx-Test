@@ -26,3 +26,4 @@ const ensureAuthMiddleware = (req, res, next) => {
     return next();
 };
 exports.default = ensureAuthMiddleware;
+//# sourceMappingURL=ensureAuth.middleware.js.map

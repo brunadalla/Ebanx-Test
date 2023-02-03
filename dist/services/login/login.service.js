@@ -17,9 +17,9 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 require("dotenv/config");
 const user_entity_1 = require("../../entities/user.entity");
 const appError_1 = require("../../errors/appError");
-const data_source_1 = require("../../data-source");
+const data_source_1 = __importDefault(require("../../data-source"));
 const loginService = ({ email, password, }) => __awaiter(void 0, void 0, void 0, function* () {
-    const userRepository = data_source_1.AppDataSource.getRepository(user_entity_1.User);
+    const userRepository = data_source_1.default.getRepository(user_entity_1.User);
     const user = yield userRepository.findOne({
         where: {
             email: email,
@@ -39,3 +39,4 @@ const loginService = ({ email, password, }) => __awaiter(void 0, void 0, void 0,
     return token;
 });
 exports.default = loginService;
+//# sourceMappingURL=login.service.js.map

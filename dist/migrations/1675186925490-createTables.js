@@ -26,3 +26,4 @@ class createTables1675186925490 {
     }
 }
 exports.createTables1675186925490 = createTables1675186925490;
+//# sourceMappingURL=1675186925490-createTables.js.map

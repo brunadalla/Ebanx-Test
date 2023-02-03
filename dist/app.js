@@ -13,3 +13,4 @@ app.use(express_1.default.json());
 (0, routes_1.appRoutes)(app);
 app.use(handleError_middleware_1.default);
 exports.default = app;
+//# sourceMappingURL=app.js.map

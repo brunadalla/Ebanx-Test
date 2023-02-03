@@ -22,3 +22,4 @@ const handleErrorMiddleware = (error, req, res, next) => __awaiter(void 0, void 
     });
 });
 exports.default = handleErrorMiddleware;
+//# sourceMappingURL=handleError.middleware.js.map

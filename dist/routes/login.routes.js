@@ -12,3 +12,4 @@ const loginRouter = () => {
     return routes;
 };
 exports.loginRouter = loginRouter;
+//# sourceMappingURL=login.routes.js.map
