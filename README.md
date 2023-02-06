@@ -21,7 +21,7 @@ Visão geral do projeto, um pouco das tecnologias usadas.
 - [PostgreSQL](https://www.postgresql.org/)
 - [TypeORM](https://typeorm.io/)
 
-A URL base da aplicação:
+A URL base da aplicação: https://phone-book-deploy.onrender.com/
 
 ---
 
