@@ -1,10 +1,10 @@
 import { Express } from "express"
-import { usersRouter } from "./users.routes"
-import { loginRouter } from "./login.routes"
-import { contactsRouter } from "./contacts.routes"
+import resetController from "../controllers/reset.controller"
+import getAccountsBalanceController from "../controllers/account.controller"
+import eventController from "../controllers/event.controller"
 
 export const appRoutes = (app: Express) => {
-  app.use("/users", usersRouter())
-  app.use("/login", loginRouter())
-  app.use("/contacts", contactsRouter())
+  app.get("/balance", getAccountsBalanceController)
+  app.post("/reset", resetController)
+  app.post("/event", eventController)
 }
